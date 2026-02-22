@@ -39,14 +39,16 @@ function renderUsers(filteredUsers) {
   });
 }
 
-searchInput.addEventListener('input', (e) => {
-  const keyword = e.target.value.toLowerCase();
+function updateSearch() {
+  const keyword = searchInput.value.toLowerCase().trim();
+
   const filtered = users.filter((user) => {
     return user.name.toLowerCase().includes(keyword);
-  })
+  });
 
   renderUsers(filtered);
-});
+}
 
+searchInput.addEventListener('input', updateSearch);
 
 renderUsers(users);
