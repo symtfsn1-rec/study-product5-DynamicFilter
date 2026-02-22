@@ -23,6 +23,15 @@ const userList = document.getElementById('userList');
 function renderUsers(filteredUsers) {
   userList.innerHTML = '';
 
+  if (filteredUsers.length === 0) {
+    const noResultItem = document.createElement('li');
+    noResultItem.textContent = '一致するユーザーが見つかりません';
+    noResultItem.style.color = '#888';
+    noResultItem.style.textAlign = 'center';
+    userList.appendChild(noResultItem);
+    return;
+  }
+
   filteredUsers.forEach((user) => {
     const li = document.createElement('li');
     li.textContent = user.name;
