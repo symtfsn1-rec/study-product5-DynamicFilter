@@ -1,1 +1,30 @@
 @charset "UTF-8";
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    font-family: sans-serif;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#userList {
+    list-style: none;
+    padding: 0;
+    li {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        background: #ff0000;
+      }
+      li:last-child {
+          border-bottom:none;
+      }
+    }
+

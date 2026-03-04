@@ -14,3 +14,28 @@ const users = [
 
 const searchInput = document.getElementById('searchInput');
 const userList = document.getElementById('userList');
+
+// ユーザー一覧を表示する関数
+const renderUsers = (filteredUsers) => {
+  userList.innerHTML = '';
+
+  filteredUsers.forEach((user) => {
+    const li = document.createElement('li');
+    li.textContent = user.name;
+    userList.appendChild(li);
+  });
+};
+
+// 検索イベントの監視
+searchInput.addEventListener('input', (e) => {
+  const keyword = e.target.value.toLowerCase();
+
+  const filtered = users.filter((user) => {
+    return user.name.toLowerCase().includes(keyword);
+  });
+
+  renderUsers(filtered);
+});
+
+// 最初に全データを表示しておく
+renderUsers(users);
