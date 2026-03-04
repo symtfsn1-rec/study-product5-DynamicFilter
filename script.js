@@ -35,16 +35,18 @@ const renderUsers = (filteredUsers) => {
   });
 };
 
-// 検索イベントの監視
-searchInput.addEventListener('input', (e) => {
-  const keyword = e.target.value.toLowerCase();
-
+const updateSearch = () => {
+  const keyword = searchInput.value.toLowerCase().trim();
+  
   const filtered = users.filter((user) => {
     return user.name.toLowerCase().includes(keyword);
   });
-
+  
   renderUsers(filtered);
-});
+};
+
+// 検索イベントの監視
+searchInput.addEventListener('input', updateSearch);
 
 // 最初に全データを表示しておく
 renderUsers(users);
